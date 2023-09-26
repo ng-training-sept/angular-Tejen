@@ -14,14 +14,14 @@ export class PersoncardComponent {
   @Input({required: true}) titles: string[] = [];
 
   @Output() titleEvent$ = new EventEmitter<string>();
-  @Output() deleteEvent$ = new EventEmitter<void>();
+  @Output() deleteEvent$ = new EventEmitter<string>();
 
   onAddCard(title: string): void {
     console.log(title)
     this.titleEvent$.emit(title);
   }
-  onDeleteCard(): void {
-    this.deleteEvent$.emit();
+  onDeleteCard(title:string): void {
+    this.deleteEvent$.emit(title);
   }
 
 }

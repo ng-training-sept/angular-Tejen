@@ -35,9 +35,11 @@ addCard(titlea: string) {
   this.cardsTitle.push(titlea);
   console.log(this.cardsTitle)
 }
-deleteCard() {
-  console.log()
-  this.cardsTitle.pop();
+deleteCard(title:string) {
+  console.log(title+ "sadad")
+  const a=this.cardsTitle.indexOf(title)
+  console.log(a)
+  this.cardsTitle.splice(a,1)
   console.log(this.cardsTitle)
 }
 toggleDisable()

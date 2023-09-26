@@ -25,4 +25,4 @@
 </mat-card>
 <mat-card-title>{{title | uppercase | reverse}} reverse of {{title}}</mat-card-title>
 
-<app-personcard [titles]="cardsTitle" (titleEvent$)="addCard($event)" (deleteEvent$)="deleteCard()"></app-personcard>
+<app-personcard [titles]="cardsTitle" (titleEvent$)="addCard($event)" (deleteEvent$)="deleteCard($event)"></app-personcard>

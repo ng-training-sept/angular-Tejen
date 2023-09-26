@@ -1,9 +1,13 @@
 <p>{{titles}}</p>
 
+
 <mat-form-field appearance="fill">
   <mat-label>Title</mat-label>
+  <ng-container *ngFor="let title of titles">
+  <h2>{{title}}</h2>
+<button mat-raised-button color="primary" (click)="onDeleteCard(title)">Delete</button>
+
+</ng-container>
   <input type="text" matInput #inputTitle>
 </mat-form-field>
 <button mat-raised-button color="primary" (click)="onAddCard(inputTitle.value)">Add Card</button>
-
-<button mat-raised-button color="primary" (click)="onDeleteCard()">Delete</button>
