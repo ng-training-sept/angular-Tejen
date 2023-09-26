@@ -1,0 +1,28 @@
+<h3>{{name}}</h3>
+<h3>{{contact}}</h3>
+<h3>Profile:{{profile}}</h3>
+<h3>Full name:{{profile.name.fname}} {{profile.name.lname}}</h3>
+
+<mat-card>
+<mat-card-header>
+    {{title}}
+</mat-card-header>
+<mat-card-content>
+    <p>I am running on port {{port}}</p>
+  </mat-card-content>
+</mat-card>
+<button (click)="toggleDisable()">toggle</button>
+<button [disabled]="isButtonDisabled">button</button>
+<button mat-button [disabled]="isButtonDisabled" (click)="onLike()">LIKE</button>
+<mat-card-subtitle *ngIf="likeCount">{{likeCount}} Likes</mat-card-subtitle>
+<h3>{{likeCount}}</h3>
+<mat-card class="card" *ngFor="let cardTitle of titles">
+  <mat-card-header>
+    <mat-card-title>{{cardTitle}}</mat-card-title>
+   
+  </mat-card-header>
+
+</mat-card>
+<mat-card-title>{{title | uppercase | reverse}} reverse of {{title}}</mat-card-title>
+
+<app-personcard [titles]="cardsTitle" (titleEvent$)="addCard($event)" (deleteEvent$)="deleteCard()"></app-personcard>

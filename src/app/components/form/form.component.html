@@ -1,0 +1,13 @@
+<h2>Enter Username</h2>
+<input [(ngModel)]="userName">
+<p>{{userName}}</p>
+<button mat-button [style.color]="btnStyle" [disabled]="!userName" (click)="empty()">Reset</button>
+
+<table>
+    <ng-container *ngFor="let group of groups">
+        <tr><td><h2>{{group.name}}</h2></td></tr>
+        <tr *ngFor="let item of group.items"><td>{{item}}</td></tr>
+    </ng-container>
+  </table>
+
+

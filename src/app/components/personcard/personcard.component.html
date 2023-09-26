@@ -1,0 +1,9 @@
+<p>{{titles}}</p>
+
+<mat-form-field appearance="fill">
+  <mat-label>Title</mat-label>
+  <input type="text" matInput #inputTitle>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="onAddCard(inputTitle.value)">Add Card</button>
+
+<button mat-raised-button color="primary" (click)="onDeleteCard()">Delete</button>
