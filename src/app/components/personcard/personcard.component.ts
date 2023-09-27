@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class PersoncardComponent {
 
+
   @Input({required: true}) titles: string[] = [];
 
   @Output() titleEvent$ = new EventEmitter<string>();

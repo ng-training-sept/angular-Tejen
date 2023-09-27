@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import { ReversePipe } from 'src/app/pipes/reverse.pipe';
 import { PersoncardComponent } from '../personcard/personcard.component';
+import {Card} from '../card/card.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -12,6 +14,24 @@ import { PersoncardComponent } from '../personcard/personcard.component';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
+  @Input() cards: Card[] = [];
+  id!: string;
+  data!: Card;
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.id = id;
+    }
+   this.data = history.state?.data;
+  }
+  
+  goToItemDetails(data: Card): void {
+    this.router.navigate(['card-item', data.id], {state: {data}, relativeTo: this.route}).then();
+  }
+
 
   likeCount:number=0;
   titles: string[] = ['a', 'b', 'c', 'di', 'e'];
@@ -49,6 +69,7 @@ toggleDisable()
 onLike(): void {
   this.likeCount++;
   alert('You liked this!')
+  
 }
 
 

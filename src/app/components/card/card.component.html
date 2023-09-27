@@ -1,4 +1,4 @@
-<h3>{{name}}</h3>
+<!-- <h3>{{name}}</h3>
 <h3>{{contact}}</h3>
 <h3>Profile:{{profile}}</h3>
 <h3>Full name:{{profile.name.fname}} {{profile.name.lname}}</h3>
@@ -25,4 +25,21 @@
 </mat-card>
 <mat-card-title>{{title | uppercase | reverse}} reverse of {{title}}</mat-card-title>
 
-<app-personcard [titles]="cardsTitle" (titleEvent$)="addCard($event)" (deleteEvent$)="deleteCard($event)"></app-personcard>
+<app-personcard [titles]="cardsTitle" (titleEvent$)="addCard($event)" (deleteEvent$)="deleteCard($event)"></app-personcard> -->
+
+
+<div class="card-container">
+  <mat-card class="card" *ngFor="let card of cards">
+  
+      <mat-card-header>
+        <mat-card-title>{{card.name}}</mat-card-title>
+        <mat-card-subtitle>{{card.price}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="card.imageUrl" alt="card">
+      <mat-card-content>
+        <p>{{card.description}}</p>
+      </mat-card-content>
+  
+    
+  </mat-card>
+</div>
